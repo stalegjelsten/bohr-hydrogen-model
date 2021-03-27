@@ -1,3 +1,6 @@
+👉 [Link til simleringen](https://stalegjelsten.github.io/bohr-hydrogen-model/)
+
+## Faglig forklaring
 I denne simuleringen bruker vi [Bohrs atommodell](https://snl.no/atom_-_atomteori#-Bohrs_atommodell). Dette er en modell som antar at elektronene befinner seg omkring atomkjernen, og at elektronene *kun* kan eksistere i bestemte energinivåer (eller skall). Bohrs lanserte sin atommodell i 1913, og det ble relativt raskt klart at den ikke er en god modell for ioner med mer enn ett elektron, men den gir gode resultater for hydrogen $^1_1\mathrm{H}$ og heliumioner $^4_2\mathrm{He}^{-}$ (som begge kun har ett elektron).
 
 Hydrogenatomet har ulike energinivåer som vi gjerne beskriver som skall rundt atomkjernen. Hvis et elektron blir tilført energi kan det *eksitere* og flytte seg til et høyere energinivå. Elektronet vil senere *emittere* et foton og flytte seg tilbake til grunntilstanden. Energien som kreves for å flytte seg mellom to energinivåer er gitt ved
