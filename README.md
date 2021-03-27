@@ -1,4 +1,4 @@
-👉 [Link til simleringen](https://stalegjelsten.github.io/bohr-hydrogen-model/)
+👉 [Link til simuleringen](https://stalegjelsten.github.io/bohr-hydrogen-model/) 👈
 
 ## Faglig forklaring
 I denne simuleringen bruker vi [Bohrs atommodell](https://snl.no/atom_-_atomteori#-Bohrs_atommodell). Dette er en modell som antar at elektronene befinner seg omkring atomkjernen, og at elektronene *kun* kan eksistere i bestemte energinivåer (eller skall). Bohrs lanserte sin atommodell i 1913, og det ble relativt raskt klart at den ikke er en god modell for ioner med mer enn ett elektron, men den gir gode resultater for hydrogen <img src="https://cdn.jsdelivr.net/gh/stalegjelsten/bohr-hydrogen-model@master/svgs/46f6823fe6dab1fb384fea1eff88c006.svg?invert_in_darkmode" align=middle width=19.70325884999999pt height=26.76175259999998pt/> og heliumioner <img src="https://cdn.jsdelivr.net/gh/stalegjelsten/bohr-hydrogen-model@master/svgs/f979276258815fee03c50c9373ddbacd.svg?invert_in_darkmode" align=middle width=37.283206949999986pt height=28.584520800000007pt/> (som begge kun har ett elektron).
