@@ -68,6 +68,10 @@ function draw() {
   if (incr > (width / 2) || incr < energyLevels[0]) {
     incr = energyLevels[0];
   }
+  textSize(16);
+  text("𝜆 = " + electron.lam + " nm", 20, 20);
+  text("∆E = " + (electron.E*1e18).toPrecision(4) + " aJ", 20, 40);
+  textSize(8);
 }
 
 class Electron {
@@ -90,7 +94,7 @@ class Electron {
 
   emit() {
     if (this.destX < this.x) {
-      incr -= 2;
+      incr -= 1.5;
       if (this.lam == 434) {
         stroke(40, 0, 255);
         fill(40, 0, 255);
@@ -118,9 +122,6 @@ class Electron {
 
       line(xstart, ystart, xslutt, yslutt);
       triangle(1.10 * this.lengde * cos(this.theta) + this.x, 1.10 * this.lengde * sin(this.theta) + this.y, this.lengde * cos(this.theta - 0.05) + this.x, this.lengde * sin(this.theta - 0.05) + this.y, this.lengde * cos(this.theta + 0.05) + this.x, this.lengde * sin(this.theta + 0.05) + this.y);
-      textSize(16);
-      text(this.lam + " nm", 20, 20);
-      textSize(8);
       fill(0);
       stroke(0);
 
@@ -186,7 +187,8 @@ function emitter() {
   electron.destX = width / 2 + to_jump;
   electron.currentN = energyLevels.indexOf(to_jump) + 1;
 
-  electron.lam = floor((cSpeed * planck) / ((rydberg) * (1 / (oldN * oldN) - 1 / (electron.currentN * electron.currentN))) * -1e9)
+  electron.E = (- (rydberg) * (1 / (oldN * oldN) - 1 / (electron.currentN * electron.currentN)));
+  electron.lam = floor((cSpeed * planck) / abs(electron.E) * 1e9);
   electron.theta = random(0, TWO_PI);
   electron.lengde = map(electron.lam, 0, 1500, 150, 20);
 }

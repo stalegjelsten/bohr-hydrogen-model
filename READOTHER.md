@@ -1,5 +1,7 @@
 👉 [Link til simuleringen](https://stalegjelsten.github.io/bohr-hydrogen-model/) 👈
 
+Tilfør energi til systemet ved å dra musepekeren eller fingeren over animasjonen. Du kan også tilføre energi ved å trykke på `Eksitér` eller ved å bruke oppovertasten på tastaturet. Elektronet faller ned til et tilfeldig energinivå når du trykker `Emittér`, trykker høyre museknapp eller nedovertasten på tastaturet.
+
 ## Faglig forklaring
 I denne simuleringen bruker vi [Bohrs atommodell](https://snl.no/atom_-_atomteori#-Bohrs_atommodell). Dette er en modell som antar at elektronene befinner seg omkring atomkjernen, og at elektronene *kun* kan eksistere i bestemte energinivåer (eller skall). Bohrs lanserte sin atommodell i 1913, og det ble relativt raskt klart at den ikke er en god modell for ioner med mer enn ett elektron, men den gir gode resultater for hydrogen $^1_1\mathrm{H}$ og heliumioner $^4_2\mathrm{He}^{-}$ (som begge kun har ett elektron).
 
