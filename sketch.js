@@ -202,9 +202,32 @@ function keyPressed() {
     incr = energyLevels[5];
     electron.currentN = 6
     electron.destX = 1000;
+  } else if (key == "q") {
+    emitTo(1);
+  } else if (key == 'w') {
+    emitTo(2);
+  } else if (key == "e") {
+    emitTo(3);
+  } else if (key == "r") {
+    emitTo(4);
+  } else if (key == "t") {
+    emitTo(5);
+  } else if (key == "y") {
+    emitTo(6);
   }
 
 }
+
+function emitTo(n) {
+  let oldN = electron.currentN;
+  electron.destX = width / 2 + energyLevels[n-1];
+  electron.currentN = n
+  electron.E = (- (rydberg) * (1 / (oldN * oldN) - 1 / (electron.currentN * electron.currentN)));
+  electron.lam = floor((cSpeed * planck) / abs(electron.E) * 1e9);
+  electron.theta = random(0, TWO_PI);
+  electron.lengde = map(electron.E, 1e-20, 3e-18, 30, 150);
+}
+
 function emitter() {
   if (electron.currentN == 1){
     return;
