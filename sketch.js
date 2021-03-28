@@ -11,16 +11,17 @@ let emitButton;
 
 function setup() {
   createCanvas(600, 600);
+  textFont("monospace");
   textSize(8);
   frameRate(60);
   background(220);
   createP("");
   electron = new Electron(width / 2 + energyLevels[0], height / 2, 6);
-  emitButton = createButton("Eksitér!");
-  exciteButton = createButton('Emittér!');
+  exciteButton = createButton("Eksitér!");
+  emitButton = createButton('Emittér!');
   // button.mousePressed(emitter(currentN-1));
-  exciteButton.mousePressed(emitter)
-  emitButton.mousePressed(eksiter)
+  exciteButton.mouseReleased(eksiter)
+  emitButton.mouseReleased(emitter)
   for (n = 1; n < 7; n++) {
 
     noFill();
@@ -33,8 +34,7 @@ function setup() {
 
 
   }
-  // incr = energyLevels[0];
-  console.log(energyLevels);
+
 }
 
 function draw() {
@@ -52,7 +52,7 @@ function draw() {
 
     ellipse(width / 2, height / 2, d, d);
     fill(0);
-    text("n = " + n, (width / 2) - 8, height / 2 + d / 2 + 6);
+    text("n = " + n, (width / 2) - 11, height / 2 + d / 2 + 6);
 
   }
 
@@ -63,14 +63,16 @@ function draw() {
   // ellipse(r, height / 2, 6, 6);
   // ellipse(r_0, height/2, 8, 8);
 
+  textSize(12)
+  text("Bohrs atommodell for Hydrogen", width-215, 20);
   fill(0);
-  text("n = " + electron.currentN, 560, 570);
+  textSize(16);
+  text("∆E = " + (electron.E*1e18).toPrecision(4) + " aJ", 20, 20);
+  text(" 𝜆 = " + electron.lam + " nm", 21, 40);
+  text(" n = " + electron.currentN, 20, 60);
   if (incr > (width / 2) || incr < energyLevels[0]) {
     incr = energyLevels[0];
   }
-  textSize(16);
-  text("𝜆 = " + electron.lam + " nm", 20, 20);
-  text("∆E = " + (electron.E*1e18).toPrecision(4) + " aJ", 20, 40);
   textSize(8);
 }
 
@@ -126,7 +128,6 @@ class Electron {
       stroke(0);
 
     } else {
-      this.lam = 0;
       background(220);
     }
   }
@@ -177,9 +178,37 @@ function keyPressed() {
     emitter();
   } else if (keyCode === UP_ARROW) {
     eksiter()
+  } else if (key == "1") {
+    incr = energyLevels[0];
+    electron.currentN = 1
+    electron.destX = 1000;
+  } else if (key == "2") {
+    incr = energyLevels[1];
+    electron.currentN = 2
+    electron.destX = 1000;
+  } else if (key == "3") {
+    incr = energyLevels[2];
+    electron.currentN = 3
+    electron.destX = 1000;
+  } else if (key == "4") {
+    incr = energyLevels[3];
+    electron.currentN = 4
+    electron.destX = 1000;
+  } else if (key == "5") {
+    incr = energyLevels[4];
+    electron.currentN = 5
+    electron.destX = 1000;
+  } else if (key == "6") {
+    incr = energyLevels[5];
+    electron.currentN = 6
+    electron.destX = 1000;
   }
+
 }
 function emitter() {
+  if (electron.currentN == 1){
+    return;
+  }
   let origX = electron.x;
   let oldN = electron.currentN;
   to_jump = random(energyLevels.slice(0, electron.currentN - 1));
@@ -190,5 +219,5 @@ function emitter() {
   electron.E = (- (rydberg) * (1 / (oldN * oldN) - 1 / (electron.currentN * electron.currentN)));
   electron.lam = floor((cSpeed * planck) / abs(electron.E) * 1e9);
   electron.theta = random(0, TWO_PI);
-  electron.lengde = map(electron.lam, 0, 1500, 150, 20);
+  electron.lengde = map(electron.E, 1e-20, 3e-18, 30, 150);
 }
